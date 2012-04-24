@@ -1,0 +1,71 @@
+<div id='background-image-box'>
+	<%= image_tag '/images/background.jpg', :id => 'background-image' %>
+</div>
+
+<div id='content-background'>
+	&nbsp;
+</div>
+
+<div id='content'>
+	<h1 class='title'>Should I go tubing today?</h1>
+	
+	<p class='verdict <%= @verdict.downcase %>'><%= @verdict %></p>
+	
+	<div id='left'>
+		<h2>River Condition</h2>
+		
+		<p class='data heading'>
+			<% if @cfs < 40 %>
+				Not enough water for tubing
+			<% elsif @cfs >= 40 and @cfs < 100 %>
+				Enough water for a mellow tubing day
+			<% elsif @cfs >= 100 and @cfs < 200 %>
+				Perfect tubing conditions
+			<% elsif @cfs >= 200 and @cfs < 300 %>
+				Fairly fast moving water- you will likely flip
+			<% else %>
+				Very fast moving water
+			<% end %>
+					
+		<p class='data'><%= @cfs %> cfs</p>
+		
+		</p>
+		
+	</div>
+	
+	<div id='right'>	
+		<h2>Weather Condition</h2>
+		
+		<p class='data heading'>
+			<% if @temperature < 85 and @today_high < 85 %>
+				Too cold
+			<% elsif !@is_good %>
+				Weather seems bad
+			<% else %>
+				Looks good
+			<% end %>
+		</p>
+				
+		<p class='data'><%= @temperature %> F, <%= @condition %></p>
+		<p class='data'>High: <%= @today_high %> F, <%= @today_condition %></p>
+		
+	</div>
+	
+</div>
+
+<script type='text/javascript'>
+	
+	$( document ).ready( function(){
+		centerBackground();	
+	} );
+	
+	$( window ).resize( function() {
+		centerBackground();
+	} );
+	
+	function centerBackground() {
+		var windowWidth = $( window ).width();
+		$( "#background-image " ).width( windowWidth );	
+	}
+	
+</script>
