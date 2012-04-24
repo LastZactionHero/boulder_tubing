@@ -15,34 +15,20 @@ body {
   background-color: black;   
 }
 
-#content-background {
-  position: fixed;
+#content {
+  position: absolute;
   z-index: 1;
   
   left: 60px;
   right: 60px;
-  top: 60px;
-  bottom: 60px;
-
-  background-color: white;
-  opacity: 0.75;
+  top: 60px;    
   
-  border: 8px solid #9FEE00;
-  border-radius: 20px;
-}
-
-#content {
-  position: fixed;
-  z-index: 2;
-  
-  left: 60px;
-  right: 60px;
-  top: 60px;
-  bottom: 60px;  
-  
-  padding: 24px;
-  
+  padding: 24px;  
   overflow: auto;
+  
+  background-color: white;
+  border: 8px solid #9FEE00;
+  border-radius: 20px;  
 }
 
 #content #left {
