@@ -12,7 +12,9 @@ body {
   right: 0px;
   top: 0px;
   bottom: 0px;
-  background-color: black;   
+  background-color: black;
+  
+  overflow: hidden;   
 }
 
 #content {
@@ -39,6 +41,17 @@ body {
 #content #right {
   width: 50%;
   float: left;
+}
+
+#boulder-creek-title {
+  position: absolute;
+  z-index: 1;  
+  top: 8px;
+  left: 60px;
+  
+  font-size: 2em;  
+  font-family: 'Trocchi', serif;
+  color: white;   
 }
 
 h1 {

@@ -2,13 +2,17 @@
 	<%= image_tag '/images/background.jpg', :id => 'background-image' %>
 </div>
 
+<div id='boulder-creek-title'>
+	Boulder Creek Tubing
+</div>
+
 <div id='content'>
 	<h1 class='title'>Should I go tubing today?</h1>
 	
 	<p class='verdict <%= @verdict.downcase %>'><%= @verdict %></p>
 	
 	<div id='left'>
-		<h2>River Condition</h2>
+		<h2>River</h2>
 		
 		<p class='data heading'>
 			<% if @cfs < 40 %>
@@ -30,7 +34,7 @@
 	</div>
 	
 	<div id='right'>	
-		<h2>Weather Condition</h2>
+		<h2>Weather</h2>
 		
 		<p class='data heading'>
 			<% if @temperature < 85 and @today_high < 85 %>
@@ -53,15 +57,40 @@
 	
 	$( document ).ready( function(){
 		centerBackground();	
+		repositionInfo();
 	} );
 	
 	$( window ).resize( function() {
 		centerBackground();
+		repositionInfo();
 	} );
 	
 	function centerBackground() {
 		var windowWidth = $( window ).width();
-		$( "#background-image " ).width( windowWidth );	
+		var windowHeight = $( window ).height();
+		
+		if( windowWidth > windowHeight ) {
+			$( "#background-image" ).width( windowWidth );
+		} else {
+			$( "#background-image" ).height( windowHeight );
+		}
 	}
+	
+	function repositionInfo() {
+		var infoWidth = $( "#right" ).width();
+
+		if( infoWidth < 400 ) { 
+			$( "#left" ).css( 'float', 'none' );
+			$( "#left" ).css( 'width', '100%' );
+			$( "#right" ).css( 'float', 'none' );
+			$( "#right" ).css( 'width', '100%' );
+		} else {
+			$( "#left" ).css( 'float', 'left' );
+			$( "#left" ).css( 'width', '50%' );
+			$( "#right" ).css( 'float', 'left' );
+			$( "#right" ).css( 'width', '50%' );		
+		}
+	}
+	
 	
 </script>
