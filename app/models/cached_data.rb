@@ -21,7 +21,7 @@ class CachedData < ActiveRecord::Base
   
   def expired?
     # 5 minute expiration
-    ( DateTime.now.to_i - self.cache_time.to_i ) > 5 * 60            
+    ( DateTime.now.to_i - self.cache_time.to_i ) > 5 * 60 || cfs <= 0.0            
   end
   
   def cache_new_data
