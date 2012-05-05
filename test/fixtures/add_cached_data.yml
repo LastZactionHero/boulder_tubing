@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  cfs: 1.5
+  current_temperature: 1.5
+  current_condition: MyString
+  today_high: 1.5
+  today_condition: MyString
+  cache_time: 2012-05-05 16:58:14
+
+two:
+  cfs: 1.5
+  current_temperature: 1.5
+  current_condition: MyString
+  today_high: 1.5
+  today_condition: MyString
+  cache_time: 2012-05-05 16:58:14
