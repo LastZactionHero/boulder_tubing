@@ -1,0 +1,42 @@
+<div id='content'>
+	<h2>Boulder Creek Tubing Conditions</h2>
+	
+	<div id='left'>
+		<h2>River</h2>
+		
+		<p class='data heading'>
+			<%= @cfs %> cfs - 
+			<% if @cfs < 40 %>
+				Not enough water for tubing
+			<% elsif @cfs >= 40 and @cfs < 100 %>
+				Enough water for a mellow tubing day
+			<% elsif @cfs >= 100 and @cfs < 200 %>
+				Perfect tubing conditions
+			<% elsif @cfs >= 200 and @cfs < 300 %>
+				Fairly fast moving water- you will likely flip
+			<% else %>
+				Very fast moving water
+			<% end %>
+	</div>
+	
+	<div id='right'>	
+		<h2>Weather</h2>
+		
+		<p class='data heading'>
+			<% if @temperature < 85 and @today_high < 85 %>
+				Too cold
+			<% elsif !@is_good %>
+				Weather seems bad
+			<% else %>
+				Looks good
+			<% end %>
+			
+			- <%= @temperature %> F, <%= @condition %> - High: <%= @today_high %> F, <%= @today_condition %>
+		</p>
+	</div>
+	
+</div>
+
+<script type='text/javascript'>
+
+</script>

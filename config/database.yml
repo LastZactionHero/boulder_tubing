@@ -2,8 +2,8 @@ development:
   adapter: mysql2
   encoding: utf8
   database: tubing
-  username: tubing
-  password: tubing
+  username: root
+  password: 
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
