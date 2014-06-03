@@ -8,89 +8,38 @@
 
 <div id='content'>
 	<h1 class='title'>Should I go tubing today?</h1>
-	
-	<p class='verdict <%= @verdict.downcase %>'><%= @verdict %></p>
-	
+
+	<p class='verdict <%= verdict_class(@river_conditions.verdict) %>'>
+		<%= verdict_text(@river_conditions.verdict) %>
+	</p>
+
 	<div id='left'>
 		<h2>River</h2>
-		
+
 		<p class='data heading'>
-			<% if @cfs < 40 %>
-				Not enough water for tubing
-			<% elsif @cfs >= 40 and @cfs < 100 %>
-				Enough water for a mellow tubing day
-			<% elsif @cfs >= 100 and @cfs < 200 %>
-				Perfect tubing conditions
-			<% elsif @cfs >= 200 and @cfs < 300 %>
-				Fairly fast moving water- you will likely flip
-			<% else %>
-				Very fast moving water
-			<% end %>
-					
-		<p class='data'><%= @cfs %> cfs</p>
-		
+			<%= river_description(@river_conditions.cfs) %>
+			<p class='data'><%= @river_conditions.cfs %> cfs</p>
 		</p>
-		
+
 	</div>
-	
-	<div id='right'>	
+
+	<div id='right'>
 		<h2>Weather</h2>
-		
+
 		<p class='data heading'>
-			<% if @temperature < 85 and @today_high < 85 %>
-				Too cold
-			<% elsif !@is_good %>
-				Weather seems bad
-			<% else %>
-				Looks good
-			<% end %>
+			<%= weather_description(@river_conditions.temperature,
+						@river_conditions.today_high,
+						@river_conditions.is_good) %>
 		</p>
-				
-		<p class='data'><%= @temperature %> F, <%= @condition %></p>
-		<p class='data'>High: <%= @today_high %> F, <%= @today_condition %></p>
-		
+
+		<p class='data'>
+			<%= @river_conditions.temperature %> F, <%= @river_conditions.condition %>
+		</p>
+
+		<p class='data'>
+			High: <%= @river_conditions.today_high %> F, <%= @river_conditions.today_condition %>
+		</p>
+
 	</div>
-	
+
 </div>
-
-<script type='text/javascript'>
-	
-	$( document ).ready( function(){
-		centerBackground();	
-		repositionInfo();
-	} );
-	
-	$( window ).resize( function() {
-		//centerBackground();
-		//repositionInfo();
-	} );
-	
-	function centerBackground() {
-		var windowWidth = $( window ).width();
-		var windowHeight = $( window ).height();
-		
-		if( windowWidth > windowHeight ) {
-			$( "#background-image" ).width( windowWidth );
-		} else {
-			$( "#background-image" ).height( windowHeight );
-		}
-	}
-	
-	function repositionInfo() {
-		var infoWidth = $( "#right" ).width();
-
-		if( infoWidth < 400 ) { 
-			$( "#left" ).css( 'float', 'none' );
-			$( "#left" ).css( 'width', '100%' );
-			$( "#right" ).css( 'float', 'none' );
-			$( "#right" ).css( 'width', '100%' );
-		} else {
-			$( "#left" ).css( 'float', 'left' );
-			$( "#left" ).css( 'width', '50%' );
-			$( "#right" ).css( 'float', 'left' );
-			$( "#right" ).css( 'width', '50%' );		
-		}
-	}
-	
-	
-</script>
