@@ -23,10 +23,10 @@ class RiverConditions
     @condition = weather_data.current_condition
     @today_high = weather_data.today_high
     @today_condition = weather_data.today_condition
-    @is_good = is_condition_good?( @condition ) and is_condition_good?( @today_condition )
+    @is_good = is_condition_good?( @condition ) && is_condition_good?( @today_condition )
+
 
     @verdict = ok_to_tube?(@cfs, @temperature, @today_high, @is_good)
-    true
   end
 
   def ok_to_tube?(cfs, temperature, today_high, condition_is_good)
@@ -37,8 +37,6 @@ class RiverConditions
   end
 
   def is_condition_good?( condition )
-    good = false
-
     good_conditions = [
       'windy',
       'cloudy',
@@ -49,11 +47,9 @@ class RiverConditions
       'fair',
       'hot' ]
 
-    good_conditions.each do |good_condition|
-      good = true if condition.downcase.include?( good_condition )
+    good_conditions.any? do |good_condition|
+      condition.downcase.include?( good_condition )
     end
-
-    good
   end
 
 end

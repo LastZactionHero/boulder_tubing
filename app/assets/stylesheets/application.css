@@ -71,6 +71,7 @@ h2 {
   padding: 0px 8px;
 }
 
+.pending-verdict,
 .verdict {
   font-size: 4em;
   font-weight: bold;

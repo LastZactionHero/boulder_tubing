@@ -1,4 +1,4 @@
-module TubingHelper
+module RiverConditionsHelper
 
   def verdict_text(verdict)
     verdict ? "Yes" : "No"
@@ -9,7 +9,7 @@ module TubingHelper
   end
 
   def river_description(cfs)
-    if cfs < 40
+    if cfs < 40 # TODO convert to case statement
       "Not enough water for tubing"
     elsif cfs >= 40 and cfs < 100
       "Enough water for a mellow tubing day"

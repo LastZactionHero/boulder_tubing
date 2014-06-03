@@ -1,0 +1,32 @@
+<p class='verdict <%= verdict_class(@conditions.verdict) %>'>
+	<%= verdict_text(@conditions.verdict) %>
+</p>
+
+<div id='river-info' class='outdoors-data'>
+	<h2>River</h2>
+
+	<p class='data heading'>
+		<%= river_description(@conditions.cfs) %>
+		<p class='data'><%= @conditions.cfs %> cfs</p>
+	</p>
+
+</div>
+
+<div id='weather-info' class='outdoors-data'>
+	<h2>Weather</h2>
+
+	<p class='data heading'>
+		<%= weather_description(@conditions.temperature,
+					@conditions.today_high,
+					@conditions.is_good) %>
+	</p>
+
+	<p class='data'>
+		<%= @conditions.temperature %> F, <%= @conditions.condition %>
+	</p>
+
+	<p class='data'>
+		High: <%= @conditions.today_high %> F, <%= @conditions.today_condition %>
+	</p>
+
+</div>

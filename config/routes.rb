@@ -1,7 +1,7 @@
 Tubing::Application.routes.draw do
 
   root :to => 'home#index'  
-  match 'statusboard' => 'home#statusboard'
+  get 'river-conditions', :to => 'river_conditions#index'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
