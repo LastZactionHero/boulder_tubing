@@ -31,14 +31,11 @@ body {
   overflow: hidden;
 }
 
+#container {
+  margin: 20px 60px;
+}
+
 #content {
-  position: absolute;
-  z-index: 1;
-
-  left: 60px;
-  right: 60px;
-  top: 60px;
-
   padding: 24px;
   overflow: auto;
 
@@ -47,21 +44,13 @@ body {
   border-radius: 20px;
 }
 
-#content #left {
-  width: 50%;
-  float: left;
-}
-
-#content #right {
+.outdoors-data {
   width: 50%;
   float: left;
 }
 
 #boulder-creek-title {
-  position: absolute;
-  z-index: 1;
-  top: 8px;
-  left: 60px;
+  margin-top: 8px;
 
   font-size: 2em;
   font-family: 'Trocchi', serif;
@@ -104,4 +93,35 @@ h2 {
 
 .heading {
   font-weight: bold;
+}
+
+@media only screen and (max-width : 800px) {
+  .outdoors-data {
+    width: 100%;
+    float: none;
+  }
+
+  #content {
+    position: relative;
+
+    padding: 24px;
+    overflow: auto;
+
+    background-color: white;
+    border: 8px solid #2c3e50;
+    border-radius: 20px;
+  }
+
+  #container {
+    margin: 5px;
+  }
+
+  h1 {
+    font-size: 2.5em;
+    margin: 0;
+  }
+
+  .verdict {
+    margin: 32px;
+  }
 }
