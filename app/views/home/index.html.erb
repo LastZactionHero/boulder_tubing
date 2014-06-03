@@ -1,7 +1,3 @@
-<div id='background-image-box'>
-	<%= image_tag '/images/background.jpg', :id => 'background-image' %>
-</div>
-
 <div id='boulder-creek-title'>
 	Boulder Creek Tubing
 </div>
@@ -43,21 +39,3 @@
 	</div>
 
 </div>
-
-<script type='text/javascript'>
-
-	$( document ).ready( function(){
-			centerBackground();
-	} );
-
-	function centerBackground() {
-		var windowWidth = $( window ).width();
-		var windowHeight = $( window ).height();
-
-		if( windowWidth > windowHeight ) {
-			$( "#background-image" ).width( windowWidth );
-		} else {
-			$( "#background-image" ).height( windowHeight );
-		}
-	}
-</script>
