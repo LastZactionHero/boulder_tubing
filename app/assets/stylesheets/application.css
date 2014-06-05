@@ -16,6 +16,12 @@ body {
   background-color: #2980b9;
 
   font-family: Helvetica;
+
+  background: url('/images/background.jpg') no-repeat center center fixed;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #background-image-box {
